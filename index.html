@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="globals.css" />
+
+  <title>Scroll-down Website</title>
+  <style>
+.flip-box-front{
+  color: brown;
+}
+/* Additional Reset Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll; /* Always show vertical scrollbar */
+  overflow-x: hidden; /* Hide any default margin or padding */
+}
+
+/* Main styles */
+.infinity-section {
+  /* ... existing styles ... */
+  margin-top: 0; /* Adjust margin-top to remove any extra space at the top */
+}
+.flip-container {
+    perspective: 1000px;
+  }
+
+  .flip-container img {
+    max-width: 100%; /* Make the image resizable */
+  }
+
+  .flip-box {
+    width: 50vw; /* 50% of the viewport width */
+    height: 65vh;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: transform 1.5s;
+  }
+
+  .flip-box:hover {
+    transform: rotateY(180deg);
+  }
+
+  .flip-box-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .flip-box-front,
+  .flip-box-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .flip-box-front {
+      background-color: #000000;
+    }
+
+  .flip-box-back {align-items: center;
+    max-width: 100%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #D8D0D0;
+    transform: rotateY(180deg);
+  }
+
+  .scrollable-content {
+    height: 100%; /* Set a fixed height for scrolling */
+    width: 100%;
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+
+  .flip-box-back img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px; /* Add some margin between images */
+  }
+  </style>
+
+  <script src="script.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-down Website</title>
+</head>
+<body>
+
+
+    <section id="section1" class="infinity-section">
+         
+            <div class="buttons-container">
+              <div class="round-button" onclick="scrollToSection('section1')" id="rbutton1" onmouseover="setCustomContent('CarD!')" onmouseout="resetContent()"></div>
+              <div class="round-button" onclick="scrollToSection('section2')" id="rbutton2" onmouseover="setCustomContent('Works!')" onmouseout="resetContent()"></div>
+              <div class="round-button" onclick="scrollToSection('section3')" id="rbutton3" onmouseover="setCustomContent('About!')" onmouseout="resetContent()"></div>
+              
+              
+            </div>
+
+            <div class="flip-container">
+                <div class="flip-box" onclick="flipBox(this)">
+                  <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                      <!-- Add your image here -->
+                      <img src="img/1.png" alt="Front Image">
+                    </div>
+                    <div class="flip-box-back">
+                      <div class="scrollable-content">
+                      <img src="img/mp1.jpeg  "alt="Manga Panel">
+                      <img src="img/mp2.jpeg  "alt="Manga Panel">
+                      <img src="img/mp3.jpeg  "alt="Manga Panel">
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section id="section2" class="section">
+      <div class="title-container">
+        <h2 class="section2-title">Working Projects!!* :</h2>
+    </div>
+
+      
+        <div id="box1" class="boxs" onclick="showPopup(
+          'Cattle Cura is a dynamic leap into the future of mobile app development, poised to revolutionize the landscape of the cattle industry. we are crafting innovative resolutions and unveiling captivating viewpaths that redefine how we interact with and perceive the world of cattle. Seamlessly blending cutting-edge technology with the grace of IoT integration, Cattle Cura is set to create a groundbreaking experience, and to provide tendencies to help farmers to be more connected future in the realm of agriculture.')"><div class="box1-text">Cattle Cura</div></div>
+        <div id="box2" class="boxs" onclick="showPopup('Sphinx promises a revolutionary social media experience, merging expansive ideas to captivate users with a 2D mobile app that goes beyond the ordinary. Introducing the DAVINC dAPP network, Sphinx ensures a secure and innovative journey, inviting you to discover, connect, and engage in a captivating new way')"><div class="box2-text">Sphinx</div></div>
+        <div id="box3" class="boxs" onclick="showPopup('DAVINC is not just a decentralized network; its the beating heart and visionary core of a revolutionary idea. As the chain that binds the future, DAVINC extends an open invitation to upcoming applications, weaving strength and power into its very fabric. A new era unfolds, where security meets innovation, making DAVINC the compelling and superior alternative in the tech landscape.')"> <div class="box3-text">Upcomings!+</div></div>
+            
+
+        <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+        <div class="popup" id="popup">
+            <div class="popup-content" id="popupContent"></div>
+        </div>
+    </section>
+
+    <section id="section3">
+      
+        <div class="top-div"><div class="neon-text"><h1>About:</h1><p>"Dive into the electrifying universe of Davinc — the tech maverick rewriting the rules of innovation with our mind-bending decentralized network, DAVINC. We're currently in the midst of engineering cosmic experiences that defy the ordinary. Imagine applications that are not just creative but outright insane, a rollercoaster of wild ideas that turn the tech world upside down. At Davinc, we're not content with pushing boundaries; we're obliterating them in progress. Secure platforms? Yes, but with a side of pure adrenaline. Get ready for a tech odyssey where 'crazy' is just the beginning, and innovation knows no limits!"</p>
+          </div>
+  
+        </div>
+        <div class="bottom-div"><div>
+          <h2>Linkss!!:</h2>
+          <div class="link-tree">
+     
+            <div class="social__links">
+              <ul id="item">
+                <li class="instagram"><a href="https://www.instagram.com/davinc.tech/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA=="target="_blank">
+                  <img src="img/icons8-insta-69.png" alt="Instagram Logo">
+
+                    <i class="fafa-instagram"></i>
+                    <span>
+                      <h3>@davinc.tech</h3>
+                      <p>Get Our Lastest @IG !.</p>
+                    </span>
+                  </a></li>
+                <li class="discord"><a href="https://discord.gg/JueNTE3A" target="_blank">
+                  <img class="discordimg" src="img/icons8-discord.svg" alt="Discord Logo">
+                    <i class="discord"></i>
+                    <span>
+                      <h3>@davinC</h3>
+                      <p>{DISCORD}Join the Server RN !!.</p>
+                    </span>
+                  </a></li>
+                <li class="linkedIN"><a href="https://www.linkedin.com/in/davinc-tech-dn-1889vangogh?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"target="_blank">
+                  <img src="img/icons8-linkedin-69.png" alt="linkedIN logo">
+                    <i class="linkedIN"></i>
+                    <span>
+                      <h3>@Davinc Tech-Innovation</h3>
+                      <p>Get our latest on LINKEDIN!!.</p>
+                    </span>
+                  </a></li>
+                <li class="twitter"><a href="https://github.com/davinC-tech"target="_blank">
+                  <img src="img/githubicon.png" alt="twitterlogo">
+                    <i class="twitter"></i>
+                   
+                    <span>
+                      <h3></h3>
+                      <p>Follow us on Github for the updates !!.</p>
+                    </span>
+                  </a></li>
+                  <li class="gmail"><a href="mailto:davinc.dn.1889@gmail.com"target="_blank">
+                    <img src="img/icons8-email-94.png" alt="twitterlogo">
+                      <i class="gmail"></i>
+                     
+                      <span>
+                        <h3>EMAILL!</h3>
+                        <p>@davinc.dn.1889@gmail.com</p>
+                      </span>
+                    </a></li>
+              </ul>
+            </div>
+          </div></div>
+     
+    </section>
+ 
+<script>VanillaTilt.init(document.querySelectorAll(".social__links ul li"), {
+  max: 10,
+  speed: 800,
+  glare: true,
+  "max-glare": 1
+});</script>
+</body>
+</html>
